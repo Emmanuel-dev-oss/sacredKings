@@ -1,0 +1,490 @@
+:root {
+    --card-width: 500px;
+    --card-gap: 20px;
+    --easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+
+    /* major roots */
+    --primary: #1f1a75;
+    --primary-dark: #1a1481;
+    --primary-light: #A29BFF;
+    --secondary: #FF6584;
+    --accent: #42C2FF;
+    --dark: #2D3748;
+    --light: rgba(246, 253, 255, 0.664);
+    --gray: #E2E8F0;
+    --dark-gray: #384b68;
+    --white: #ffffff;
+    --black: #000000;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    --pink-1: #ffb6c1;
+    --pink-2: #ff69b4;
+    --pink-3: #ff1493;
+    --pink-4: #db7093;
+    --pink-5: #ffc0cb;
+    --shadow-accent-lg: 0 8px 25px var(--golden-yellow);
+    --shadow-white-lg: 0 8px 25px white;
+    --control-bg: rgba(0, 0, 0, 0.7);
+    --gold: #ffd700;
+    --golden-yellow: #ffdf00;
+    --old-gold: #cfb53b;
+    --pale-gold: #E6BE8A;
+    --goldenrod: #DAA520;
+    --metallic-gold: #D4AF37;
+    --rose-gold: #B76E79;
+    --harvest-gold: #DA9100;
+    --satin-sheen-gold: #CBA135;
+    --lemon-gold: #F5C71A;
+
+    /* Background Color */
+    --dark-charcoal: #2A2A2A;
+    --dark-navy-blue: #0F1621;
+    --ultra-dark-navy-blue: #0A0E17;
+    --midnight-dark-blue: #080C14;
+    --deep-purple-black: #0F0A1E;
+    --deep-teal-black: #0C151C;
+    --deep-maroon-black: #1A0D0D;
+    --balance-dark-gray: #1E1E1E;
+    --softer-black: #121212;
+    --transparent-navy-blue: #0f162163;
+
+    --primary-1: linear-gradient(90deg, #FFEEA2, #FFD700, #C19A3C);
+    --primary-6: linear-gradient(90deg, var(--gold), var(--golden-yellow), var(--white));
+    --primary-5: radial-gradient(circle, var(--gold) 0%, var(--golden-yellow) 70%, var(--white) 100%);
+    --primary-2: radial-gradient(circle, #FFEEA2 0%, #FFD700 70%);
+    --primary-3: radial-gradient(circle, #FFEEA2 0%, #FFD700 70%, #C19A3C 100%);
+    --primary-4: linear-gradient(to right, var(--gold), var(--pale-gold));
+
+    /* Accent Colors */
+    --burgundy: #800020;
+    --emerald-green: #005F4B;
+    --warm-gray: #888888;
+    --soft-black: #1A1A1A;
+
+    /* Text & UI Colors */
+
+    /* primary text */
+    --pure-white: #ffffff;
+    --dark-gray: #333333;
+
+    /* secondary text */
+    --light-gold: #ffeea2;
+
+    /* Font Families */
+    --fontFamily-primary: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --fontFamily-secondary: 'Georgia', 'Times New Roman', serif;
+    --fontFamily-mono: 'SF Mono', 'Roboto Mono', monospace;
+    --fontFamily129ifhn: "DomaineDisplay", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --fontFamily998891: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --fontFamilyvy67q4: Georgia, "Times New Roman", serif;
+    --fontFamily-main: 'Manrope', sans-serif;
+
+    /* ============ TRANSITIONS & ANIMATIONS ============ */
+    --transition-all: all 0.3s ease;
+    --transition-nav: all 0.3s ease-in;
+    --transition-colors: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    --transition-opacity: opacity 0.3s ease;
+    --transition-transform: transform 0.3s ease;
+    --transition-shadow: box-shadow 0.3s ease;
+    --transition-fast: all 0.15s ease;
+    --transition-slow: all 0.5s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f8f9fa;
+    overscroll-behavior-y: none;
+}
+
+.testimonial {
+    background-color: var(--dark-navy-blue);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.test-header {
+    color: var(--white);
+    font-size: 1.9rem;
+    margin-bottom: 2rem;
+}
+
+.test-sub-header {
+    color: white;
+    margin-bottom: 0.2rem;
+}
+
+.carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 40px;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
+}
+
+.carousel-track {
+    display: flex;
+    gap: var(--card-gap);
+    padding: 30px 0;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-left: calc(50% - var(--card-width)/2);
+    padding-right: calc(50% - var(--card-width)/2);
+    will-change: transform;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonial-card {
+    scroll-snap-align: center;
+    flex: 0 0 var(--card-width);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    height: 300px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transform-origin: center center;
+    transition: transform 0.6s var(--easing), box-shadow 0.6s var(--easing);
+    position: relative;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.snap-design {
+    display: flex;
+    align-items: left;
+    padding: 0 0 0 0.1rem;
+    gap: 8px;
+}
+
+.card-snap-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dark-navy-blue);
+    transition: all 0.3s var(--easing);
+}
+
+.testimonial-words {
+    color: var(--dark-navy-blue);
+    text-align: left;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.testimonial-card-content {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.testimonial-card-image-div {
+    width: 100px;
+    height: 100px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 2rem;
+    background-color: gray;
+    box-shadow: 0 20px 40px rgb(0, 0, 0);
+}
+
+.card-image {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: saturate(0.9);
+    transition: filter 0.6s var(--easing);
+}
+
+.testimonial-card:hover .card-image {
+    filter: saturate(1.1);
+}
+
+.image-description {
+    width: 150px;
+    text-align: left;
+}
+
+.image-description h3 {
+    font-size: 1.2rem;
+    color: var(--golden-yellow);
+}
+
+.image-description p {
+    font-size: 1rem;
+}
+
+.image-semi-colon {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10rem;
+}
+
+.image-semi-colon p {
+    font-size: 5rem;
+    color: var(--dark-navy-blue);
+    height: 100%;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--golden-yellow);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.4s var(--easing);
+    will-change: transform, opacity;
+}
+
+.carousel-container:hover .nav-btn {
+    opacity: 1;
+}
+
+.nav-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.nav-btn.prev {
+    left: -15px;
+}
+
+.nav-btn.next {
+    right: -10px;
+}
+
+.nav-btn.hidden {
+    display: none;
+}
+
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--white);
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.nav-btn:hover svg {
+    stroke: #000;
+}
+
+/* Snap point indicator */
+.snap-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.snap-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd;
+    transition: all 0.3s var(--easing);
+}
+
+.snap-dot.active {
+    background: #333;
+    transform: scale(1.3);
+}
+
+@media (max-width: 992px) {
+    .testimonial {
+        padding: 4rem 1.4rem;
+    }
+
+    .test-header {
+        font-size: 1.6rem;
+        margin-bottom: 1.8rem;
+    }
+
+    :root {
+        --card-gap: 13px;
+    }
+
+    .testimonial-card {
+        height: 270px;
+        gap: 1.5rem;
+        padding: 1.5rem 0rem 0rem 1.5rem;
+    }
+
+    .testimonial-words p {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card-image-div {
+        width: 90px;
+        height: 90px;
+        padding: 0.4rem;
+    }
+
+    .image-description h3 {
+        font-size: 1.1rem;
+    }
+
+    .image-description p {
+        font-size: 1rem;
+    }
+
+    .image-semi-colon p {
+        font-size: 4.5rem;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --card-width: 370px;
+    }
+
+    .carousel {
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .carousel-track {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .testimonial {
+        padding: 4rem 1.4rem;
+    }
+
+    .test-sub-header {
+       font-size: 1.2rem;
+    }
+
+    .test-header {
+        font-size: 1.5rem;
+    }
+
+    .card-snap-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .testimonial-card {
+        height: 270px;
+        gap: 1.5rem;
+        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    }
+
+    .testimonial-words p {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card-image-div {
+        width: 80px;
+        height: 80px;
+        padding: 0.6rem;
+    }
+
+    .image-description {
+        width: 50%;
+    }
+
+    .image-description h3 {
+        font-size: 1rem;
+    }
+
+    .image-description p {
+        font-size: 0.9rem;
+    }
+
+    .image-semi-colon {
+        margin-left: 5rem;
+    }
+}
+
+@media (max-width: 545px) {
+    
+    .carousel-container {
+        padding: 0 5px;
+    }
+
+    .carousel-track {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --card-width: 80vw;
+        --card-gap: 15px;
+    }
+
+    .card {
+        height: 350px;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
